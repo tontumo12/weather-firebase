@@ -10,10 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "firebase": "^8.2.0",
     "nuxt": "^2.14.6",
-    "firebaseui": "file:node_modules_local/firebaseui"
+    "vee-validate": "^3.4.5"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.2",

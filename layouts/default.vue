@@ -11,7 +11,7 @@ export default {
       this.initFirebaseMessaging()
   },
   methods: {
-    ...mapActions('Noti',['setNoti']),
+    ...mapActions('Noti',['setNoti','setToken']),
       initFirebaseMessaging() {
           firebaseServive.initFirebase();
           const messaging = messagingToken()
@@ -20,6 +20,9 @@ export default {
               // sendTokenToServer(currentToken);
               // updateUIForPushEnabled(currentToken);
               console.log(currentToken)
+              this.setToken(currentToken)
+              let a = '{"nhietdo":100,"checkRain":10,"wind":21,"humidity":123,"type":"night"}'
+              console.log(JSON.parse(a))
               } else {
               // Show permission request.
               console.log('No Instance ID token available. Request permission to generate one.');
@@ -33,7 +36,10 @@ export default {
               // setTokenSentToServer(false);
           });
           messaging.onMessage((payload) => {
-              this.setNoti(JSON.parse(payload.notification.body))
+              console.log(payload)
+              let a = JSON.parse(payload.notification.body)
+              console.log(a)
+              this.setNoti(payload.notification.body)
           })
       },
   },

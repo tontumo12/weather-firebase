@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  wrather-choi:
+    build: ./
+    container_name: weather-choi
+    restart: always
+    ports:
+      - "1105:1105"
+    command: "npm run start"
