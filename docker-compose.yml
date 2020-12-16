@@ -1,10 +1,15 @@
 version: "3.7"
 
 services:
-  wrather-choi:
+  wrather-tesst:
     build: ./
-    container_name: weather-choi
+    container_name: weather-tesst
     restart: always
     ports:
       - "1105:1105"
     command: "npm run start"
+    networks:
+      - nuxt-network
+networks:
+  nuxt-network:
+    driver: bridge
